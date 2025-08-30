@@ -26,19 +26,24 @@ export default function SideNavbar() {
         top: 0,
         left: 0,
         height: "100vh",
+        alignItems:"center"
       }}
     >
-      <Link href='/' className='nav-link'>Home</Link>
-      <Link href='/favorites' className='nav-link'>Favorites</Link>
-      <Link href='/history' className='nav-link'>History</Link>
+      <Link href='/' className={styles['nav-link']}>Home</Link>
+      <Link href='/favorites' className={styles['nav-link']}>Favorites</Link>
+      <Link href='/history' className={styles['nav-link']}>History</Link>
       <div className={styles.userSection}>
         {isLoggedIn ? (
           <>
-            <Link href='/profile' className='nav-link'>Profile</Link>
+            <Link href='/profile' className={styles['profile-link']}>Profile</Link>
           </>
         ) : (
           <>
-            <Link href='/login_sign_up' className='nav-link'>Login / Sign Up</Link>
+            <Link href='/login_sign_up' className={styles['auth-link']}>
+            
+            Login / Sign Up
+            
+            </Link>
           </>
         )}
       </div>

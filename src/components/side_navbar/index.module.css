@@ -6,3 +6,18 @@
     gap: 1rem;
     padding-bottom: 20px;
 }
+.nav-link{
+  text-decoration: none;
+  color:inherit;
+  letter-spacing: 1px;
+}
+
+.auth-link{
+    display: flex;
+    align-items: space-between;
+    flex-direction: row;
+}
+
+.auth-link label{
+    text-decoration: none;
+}

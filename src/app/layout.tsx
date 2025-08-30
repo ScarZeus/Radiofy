@@ -1,5 +1,5 @@
+import SideNavbar from "@/components/side_navbar";
 import "./globals.css";
-import SideNavbar from './components/side_navbar';
 
 
 export default function RootLayout({

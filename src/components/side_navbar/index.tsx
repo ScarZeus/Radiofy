@@ -1,8 +1,17 @@
 'use client'
 import Link from "next/link";
 import styles from "./index.module.css";
+import { useEffect, useState } from "react";
 
-export default function SideNavbar({ loginStatus }: { loginStatus: boolean }) {
+export default function SideNavbar() {
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("login-status");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
   return (
     <nav
       style={{
@@ -23,7 +32,7 @@ export default function SideNavbar({ loginStatus }: { loginStatus: boolean }) {
       <Link href='/favorites' className='nav-link'>Favorites</Link>
       <Link href='/history' className='nav-link'>History</Link>
       <div className={styles.userSection}>
-        {loginStatus ? (
+        {isLoggedIn ? (
           <>
             <Link href='/profile' className='nav-link'>Profile</Link>
           </>

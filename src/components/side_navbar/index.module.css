@@ -12,12 +12,21 @@
   letter-spacing: 1px;
 }
 
-.auth-link{
-    display: flex;
-    align-items: space-between;
-    flex-direction: row;
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;        /* ensures equal spacing between icon & text */
+  color: white;       /* match your theme */
+  text-decoration: none;
+  padding-left: 0.5rem; /* slight padding for better click area */
 }
 
-.auth-link label{
-    text-decoration: none;
+.icon-wrapper:hover {
+  opacity: 0.8;       /* nice hover effect */
 }
+
+.nav-link, .profile-link {
+  color: inherit;     /* inherit color from wrapper */
+  text-decoration: none;
+}
+

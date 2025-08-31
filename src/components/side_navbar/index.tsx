@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./index.module.css";
 import { useEffect, useState } from "react";
 import { Clock, DoorOpen, Heart, Home, Radio, Search, User } from "lucide-react";
-
+import Image from "next/image";
 export default function SideNavbar() {
       const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -40,7 +40,12 @@ export default function SideNavbar() {
             fontSize:"2.5rem",
           }
         }>
-        <Radio size={25}/>
+        <Image
+        src="/Radiofy-logo.svg"
+        alt="Radiofy Logo"
+        width={40}
+        height={40}
+      />
         <Link href='/' className={styles['nav-link']}>Radiofy</Link>
       </div>
       <div className={styles['icon-wrapper']}>

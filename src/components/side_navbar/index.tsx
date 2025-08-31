@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./index.module.css";
 import { useEffect, useState } from "react";
-import { Clock, DoorOpen, Heart, Home, Search, User } from "lucide-react";
+import { Clock, DoorOpen, Heart, Home, Radio, Search, User } from "lucide-react";
 
 export default function SideNavbar() {
       const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -16,7 +16,7 @@ export default function SideNavbar() {
   return (
     <nav
       style={{
-        width: "200px",
+        width: "250px",
         background: "#1e293b",
         color: "white",
         padding: "1rem",
@@ -29,6 +29,20 @@ export default function SideNavbar() {
         height: "100vh",
       }}
     >
+      <div style={
+          {
+            display:"flex",
+            alignItems:"center",
+            gap:"0.5rem",
+            color:"white",
+            textDecoration:"none",
+            paddingLeft:"0.5rem",
+            fontSize:"2.5rem",
+          }
+        }>
+        <Radio size={25}/>
+        <Link href='/' className={styles['nav-link']}>Radiofy</Link>
+      </div>
       <div className={styles['icon-wrapper']}>
         <Home/>
         <Link href='/' className={styles['nav-link']}>Home</Link>

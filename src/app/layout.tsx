@@ -13,7 +13,7 @@ export default function RootLayout({
       <body>
         <SideNavbar  />
         <main style={{
-          marginLeft: "200px",
+          marginLeft: "255px",
           padding: "1rem"
         }}>{children}</main>
       </body>

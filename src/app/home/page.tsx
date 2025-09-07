@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import styles from "./page.module.css";
 
 export default async function Home() {
-  // Get the token from cookies
   const token = (await cookies()).get("spotify-access-token")?.value;
 
   let topTracks: any[] = [];

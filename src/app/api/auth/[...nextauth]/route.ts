@@ -1,3 +1,4 @@
+import { User } from "@/lib/types/user";
 import NextAuth, { AuthOptions } from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 import { cookies } from "next/headers";
@@ -12,48 +13,18 @@ declare module "next-auth" {
 const authorizationUrl = 
   "https://accounts.spotify.com/authorize?scope=" +
   [
-    // 🔹 Images
-    "ugc-image-upload",
+    "user-library-read",      
+  "user-library-modify",    
+  "playlist-read-private",  
+  "playlist-read-collaborative" 
+  ].join("%20");
 
-    // 🔹 Playback & Connect
-    "user-read-playback-state",
-    "user-modify-playback-state",
-    "user-read-currently-playing",
-    "app-remote-control",
-    "streaming",
-
-    // 🔹 Playlists
-    "playlist-read-private",
-    "playlist-read-collaborative",
-    "playlist-modify-private",
-    "playlist-modify-public",
-
-    // 🔹 Follow
-    "user-follow-modify",
-    "user-follow-read",
-
-    // 🔹 Listening History & Recommendations
-    "user-read-playback-position",
-    "user-top-read",
-    "user-read-recently-played",
-
-    // 🔹 Library
-    "user-library-read",
-    "user-library-modify",
-
-    // 🔹 User Profile
-    "user-read-email",
-    "user-read-private",
-
-    // 🔹 Open Access (Partner-only scopes)
-    "user-soa-link",
-    "soa-manage-entitlements",
-    "soa-manage-partner",
-    "soa-create-partner",
-    "user-soa-unlink",
-  ].join("%20"); // space-separated (URL encoded)
-
-
+var currentUser: User = {
+  id:'',
+  name:'',
+  email:'',
+  image:''
+}
 // Helper to refresh token
 async function refreshAccessToken(token: any) {
   try {
@@ -106,9 +77,14 @@ const authOptions: AuthOptions = {
   session: { strategy: "jwt" },
 
   callbacks: {
-    async jwt({ token, account }) {
+    async jwt({ token, user, account, profile}) {
       // Initial login
+      
       if (account) {
+        currentUser.id = user.id;
+        currentUser.name = user.name || '';
+        currentUser.email = user.email || '';
+        currentUser.image = user.image || '';
         return {
           accessToken: account.access_token,
           accessTokenExpires: Date.now() + (account.expires_in as number) * 1000,
@@ -125,8 +101,14 @@ const authOptions: AuthOptions = {
       return await refreshAccessToken(token);
     },
 
-    async session({ session, token }) {
+    async session({ session, user,token }) {
       session.accessToken = token.accessToken as string;
+      if (session.user) {
+        session.user.name = currentUser.name || '';
+        session.user.email = currentUser.email || '';
+        session.user.image = currentUser.image || '';
+      }
+      console.log("USER", user);
 
       // ✅ Save Spotify access token in cookies too
       (await cookies()).set("spotify-access-token", session.accessToken, {

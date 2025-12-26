@@ -1,50 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
 
 
-input {
+
+.form-input-container {
+    position: relative;
+    font-family: "Convergence", sans-serif;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    width: 260px;
+    padding: 6px 0;
+    margin: 0 10px 5px 10px
+}
+
+
+
+.form-input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px 10px;
+    color: #aaa;
+    user-select: none;
+    font-size: 0.8rem;
+    cursor: text;
+    transition: top 200ms ease-in,
+            left 200ms ease-in,
+            font-size 200ms ease-in;
+    background-color: white;
+}
+
+
+
+.form-input {
     border: none;
     outline: none;
     border-radius: 0;
-}
-
-.email-input-container {
-    position: relative;
-    font-family: "Convergence", sans-serif;
-    border: 3px solid transparent; 
-    border-radius: 8px;
-    padding: 12px 16px; 
-    width: 250px;        
-    height: auto;
-    display: flex;
-    align-items: center;
-}
-
-.email-input-container label {
-    position: absolute;
-    top: 12px;
-    left: 16px;
-    color: #aaa;
-    font-size: 1rem;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-
-.email-input {
     width: 100%;
+    padding-left: 10px;
+    box-sizing: border-box;
     font-family: inherit;
-    position: relative; 
     background: transparent;
-    border: none;
-    outline: none;
-    padding: 12px 16px; 
-    border-radius: 0.5rem;
 }
 
-.email-input-container:hover {
+
+.form-input-container:hover {
     border-color: #adffff;
 }
 
-.email-input-container:focus-within {
+.form-input-container:focus {
     border-color: #18ffff;
+}
+
+.form-input:focus ~ .form-input-label,
+.form-input:not(:placeholder-shown).form-input:not(:focus)~ .form-input-label{
+    top: -1.1rem;
+    font-size: 0.5rem;
+    left:0.2rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    align-items: center;
+    width: fit-content;
+    border: 2px solid red;
+    border-radius: 0 20px 0 20px;
+    padding: 20px;
 }

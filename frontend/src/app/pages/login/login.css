@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
+
+
+input {
+    border: none;
+    outline: none;
+    border-radius: 0;
+}
+
+.email-input-container {
+    position: relative;
+    font-family: "Convergence", sans-serif;
+    border: 3px solid transparent; 
+    border-radius: 8px;
+    padding: 12px 16px; 
+    width: 250px;        
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.email-input-container label {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    color: #aaa;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+
+.email-input {
+    width: 100%;
+    font-family: inherit;
+    position: relative; 
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 12px 16px; 
+    border-radius: 0.5rem;
+}
+
+.email-input-container:hover {
+    border-color: #adffff;
+}
+
+.email-input-container:focus-within {
+    border-color: #18ffff;
+}

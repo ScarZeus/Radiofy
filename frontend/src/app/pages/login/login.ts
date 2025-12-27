@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Login {
 
+  currentCard: 'signin' | 'signup' = 'signin';
+  accountCreationHint = "Don't have an account?";
+
+  handleChangeCard(): void {
+    this.currentCard =
+      this.currentCard === 'signin' ? 'signup' : 'signin';
+  }
 }

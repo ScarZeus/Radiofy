@@ -1,44 +1,44 @@
 <div class="loginOrSignup">
-  <div class="card-wrapper" [class.flip]="currentCard === 'signup'">
+  <div class="card-wrapper">
+    <div class="card" [class.flip]="currentCard === 'signup'">
+      <form class="login-form front">
+        <div class="form-input-container">
+          <input id="signin-email" type="email" class="form-input" placeholder=" " />
+          <label for="signin-email" class="form-input-label">Email</label>
+        </div>
 
-    <form class="login-form front">
-      <div class="form-input-container">
-        <input id="signin-email" type="email" class="form-input" placeholder=" " />
-        <label for="signin-email" class="form-input-label">Email</label>
-      </div>
+        <div class="form-input-container">
+          <input id="signin-password" type="password" class="form-input" placeholder=" " />
+          <label for="signin-password" class="form-input-label">Password</label>
+        </div>
 
-      <div class="form-input-container">
-        <input id="signin-password" type="password" class="form-input" placeholder=" " />
-        <label for="signin-password" class="form-input-label">Password</label>
-      </div>
+        <button type="submit" class="submit-button">Login</button>
 
-      <button type="submit" class="submit-button">Login</button>
-
-      <p class="creation-hint">
-        Don’t have an account?
-        <button type="button" class="change-card" (click)="handleChangeCard()">Sign up</button>
-      </p>
-    </form>
+        <p class="creation-hint">
+          Don’t have an account?
+          <button type="button" class="change-card" (click)="handleChangeCard()">Sign up</button>
+        </p>
+      </form>
 
 
-    <form class="login-form back">
-      <div class="form-input-container">
-        <input id="signup-email" type="email" class="form-input" placeholder=" " />
-        <label for="signup-email" class="form-input-label">Email</label>
-      </div>
+      <form class="login-form back">
+        <div class="form-input-container">
+          <input id="signup-email" type="email" class="form-input" placeholder=" " />
+          <label for="signup-email" class="form-input-label">Email</label>
+        </div>
 
-      <div class="form-input-container">
-        <input id="signup-password" type="password" class="form-input" placeholder=" " />
-        <label for="signup-password" class="form-input-label">Password</label>
-      </div>
+        <div class="form-input-container">
+          <input id="signup-password" type="password" class="form-input" placeholder=" " />
+          <label for="signup-password" class="form-input-label">Password</label>
+        </div>
 
-      <button type="submit" class="submit-button">Create Account</button>
+        <button type="submit" class="submit-button">Create Account</button>
 
-      <p class="creation-hint">
-        Already have an account?
-        <button type="button" classs="change-card-back"(click)="handleChangeCard()">Sign in</button>
-      </p>
-    </form>
-
+        <p class="creation-hint">
+          Already have an account?
+           <button type="button" class="change-card" (click)="handleChangeCard()">Sign in</button>
+        </p>
+      </form>
+    </div>
   </div>
 </div>

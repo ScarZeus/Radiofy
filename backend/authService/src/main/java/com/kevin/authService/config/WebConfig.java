@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(new RequestInterceptor()).addPathPatterns("/v1/api/**");
     }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Navbar } from "../../component/navbar/navbar";
+import { Header } from '../../component/header/header';
 
 @Component({
   selector: 'app-home',
-  imports: [Navbar],
+  imports: [Header],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

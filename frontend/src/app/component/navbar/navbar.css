@@ -3,8 +3,7 @@
     grid-template-columns: 32px 1fr 32px;
     align-items: center;
     gap: 8px;
-    max-width: 420px;
-    min-width: 300px;
+    max-width: 520px;
     width: 100%;
     padding: 8px 12px;
     background-color: #2a2a2a;
@@ -53,6 +52,11 @@
 }
 
 
-/* :host {
-    position: relative;
-} */
+.navbar{
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    max-width: 520px;
+    right: 30px;
+    top: 10px;
+}

@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 @Setter
 @Builder
 public class AuthResponseModel {
-    private String jwttoken;
+    private String jwtToken;
     private String status;
 }

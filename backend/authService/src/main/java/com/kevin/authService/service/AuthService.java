@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
     public AuthResponseModel authenticate(AuthRequestModel request){
         if(request!=null){
@@ -20,6 +21,10 @@ public class AuthService {
             ));
 
         }
-        return null;
+
+        String token = jwtService.generateJwtToken(request.getEmailId(), request.getPassword());
+        return AuthResponseModel.builder()
+                .jwtToken(token)
+                .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.kevin.authService.config;
 
 import com.kevin.authService.Filterer.JwtFilterer;
+import com.kevin.authService.model.AuthModels.AuthRequestModel;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,13 @@ public class SecurityConfig {
     private  UserDetailsService userDetailService;
 
 
+    @Bean
+    AuthRequestModel modelDebug(){
+        return AuthRequestModel.builder().
+                emailId("eded").
+                password("dedfef")
+                .build();
+    }
     @Bean
     public
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

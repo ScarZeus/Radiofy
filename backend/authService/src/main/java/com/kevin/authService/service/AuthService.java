@@ -17,7 +17,7 @@ public class AuthService {
     public AuthResponseModel authenticate(AuthRequestModel request){
         if(request!=null){
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    request.getEmailId(),request.getPassword()
+                request.getEmailId(),request.getPassword()
             ));
 
         }

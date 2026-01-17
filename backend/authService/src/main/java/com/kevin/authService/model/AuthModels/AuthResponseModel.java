@@ -1,14 +1,18 @@
 package com.kevin.authService.model.AuthModels;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
+import lombok.NoArgsConstructor;
 
 
+@Builder
 @Getter
 @Setter
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AuthResponseModel {
     private String jwtToken;
     private String status;
